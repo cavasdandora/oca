@@ -23,5 +23,6 @@ public class IncrementDecrement {
         int j = 1;
         int b = 3 + j++ + j;
         System.out.println("b"+b);
+
     }
 }
