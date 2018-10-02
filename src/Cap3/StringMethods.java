@@ -58,7 +58,7 @@ public class StringMethods {
 
         //--------- trim() --- removes whitespace
         System.out.println("abc".trim()); // abc
-        System.out.println("\t a b c\n".trim()); // a b c
+        System.out.println("\t a b c\n".trim()); // abc
 
         //---- method chaining
 
