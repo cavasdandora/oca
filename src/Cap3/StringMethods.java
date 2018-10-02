@@ -79,6 +79,10 @@ public class StringMethods {
         System.out.println("a=" + a); //abc
         System.out.println("b=" + b); // A23
 
+        //----- find last element
+        String test = "ansnsnsjjddjdjdkkd";
+
+        System.out.println("Last char: " + test.charAt(test.length()-1));
 
 
     }
