@@ -9,35 +9,33 @@ import java.util.Date;
 
 public class VerifyTime {
 
+        public void testLocalDateTime(LocalTime startTime, LocalTime endTime, LocalDateTime date) {
 
-    public void testLocalDateTime(LocalTime startTime, LocalTime endTime, LocalDateTime date) {
 
-        if (date.toLocalTime().isAfter(startTime) && (date.toLocalTime().isBefore(endTime))) {
+            LocalDate time = date.toLocalDate();
 
-            System.out.print("your date is intradate");
-        } else {
-            System.out.print("your date is extradate");
+            if ((startTime.getHour() < endTime.getHour()) &&
+                    (date.toLocalTime().isAfter(startTime) && date.toLocalTime().isBefore(endTime))) {
+                System.out.println("Intraday on date: " + time + " at: " + date.toLocalTime() +
+                        " between intervals: " + startTime + " - " + endTime);
+            } else {
+                System.out.println("Extraday: " + time.plusDays(1) + " at: " + date.toLocalTime() +
+                        " between intervals: " + startTime + " - " + endTime);
+            }
+
         }
 
+
+        public static void main(String args[]) {
+            VerifyTime time1 = new VerifyTime();
+
+            LocalTime startTime = LocalTime.of(12, 00, 00);
+            LocalTime endTime = LocalTime.of(10, 00, 00);
+            LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 11, 01, 00);
+
+
+            time1.testLocalDateTime(startTime, endTime, date);
+
+
+        }
     }
-
-    public static void main(String args[]) {
-        VerifyTime time1 = new VerifyTime();
-
-        LocalTime startTime = LocalTime.of( 16, 00, 00);
-        LocalTime endTime = LocalTime.of( 10, 00, 00);
-        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 16, 01, 00);
-
-        System.out.print(date.toLocalDate());
-
-
-
-
-
-
-
-        time1.testLocalDateTime(startTime, endTime, date);
-
-
-    }
-}
