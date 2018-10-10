@@ -15,30 +15,25 @@ public class VerifyTime {
 
         if ((startTime.getHour() < endTime.getHour()) &&
                 (date.toLocalTime().isAfter(startTime) && date.toLocalTime().isBefore(endTime))) {
-            System.out.println("Intraday on date: " + time + " at: " + date.toLocalTime() +
-                    " between intervals: " + startTime + " - " + endTime);
+
             return true;
         } else if (startTime.getHour() > endTime.getHour()
                 && ((date.toLocalTime().isAfter(startTime) && (startTime.getHour() > mid.getHour())))) {
-            System.out.println("Intraday: " + time + " at: " + date.toLocalTime() +
-                    " between intervals: " + startTime + " - " + endTime);
+
             return true;
         } else if (((startTime.getHour() > endTime.getHour())
                 && ((date.toLocalTime().isBefore(endTime)) && (mid.getHour() < endTime.getHour())))) {
-            System.out.println("Intraday: " + time.plusDays(1) + " at: " + date.toLocalTime() +
-                    " between intervals: " + startTime + " - " + endTime);
+
             return true;
 
         } else if (((startTime.getHour() > endTime.getHour())
 
                 && date.toLocalTime().isAfter(endTime) && (mid.getHour() > endTime.getHour()))) {
-            System.out.println("Extraday: " + time.plusDays(1) + " at: " + date.toLocalTime() +
-                    " between intervals: " + startTime + " - " + endTime);
+
             return false;
 
         } else {
-            System.out.println("Extraday: " + time + " at: " + date.toLocalTime() +
-                    " between intervals: " + startTime + " - " + endTime);
+
             return false;
 
         }
@@ -50,11 +45,39 @@ public class VerifyTime {
 
         LocalTime startTime = LocalTime.of(10, 00, 00);
         LocalTime endTime = LocalTime.of(16, 00, 00);
-        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 17, 01, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 9, 01, 00);
 
 
-      assert time1.isIntraday(startTime, endTime, date) ==false;
+        assert time1.isIntraday(startTime, endTime, date) == false;
 
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 11, 01, 00);
+
+        assert time1.isIntraday(startTime, endTime, date) == true;
+
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 17, 01, 00);
+
+        assert time1.isIntraday(startTime, endTime, date) == false;
+
+        //------------
+
+        startTime = LocalTime.of(18, 00, 00);
+        endTime = LocalTime.of(3, 00, 00);
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 17, 01, 00);
+
+
+        assert time1.isIntraday(startTime, endTime, date) == false;
+
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 19, 01, 00);
+
+        assert time1.isIntraday(startTime, endTime, date) == true;
+
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 2, 01, 00);
+
+        assert time1.isIntraday(startTime, endTime, date) == true;
+
+        date = LocalDateTime.of(2018, Month.OCTOBER, 1, 4, 01, 00);
+
+        assert time1.isIntraday(startTime, endTime, date) == false;
 
 
     }
