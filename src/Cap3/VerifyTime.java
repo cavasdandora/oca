@@ -17,6 +17,7 @@ public class VerifyTime {
                 (date.toLocalTime().isAfter(startTime) && date.toLocalTime().isBefore(endTime))) {
 
             return true;
+
         } else if (startTime.getHour() > endTime.getHour()
                 && ((date.toLocalTime().isAfter(startTime) && (startTime.getHour() > mid.getHour())))) {
 
