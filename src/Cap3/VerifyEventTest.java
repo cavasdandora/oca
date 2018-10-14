@@ -44,7 +44,7 @@ class VerifyEventTest {
     void isEventhappening_afterSOD_AfterMidnight2() {
         LocalTime startTime = LocalTime.of(7, 00, 00);
         LocalTime endTime = LocalTime.of(7, 00, 00);
-        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 00, 09, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 0, 07, 00);
 
         VerifyEvent e = new VerifyEvent();
         Assertions.assertEquals(false, e.isEventhappening(startTime, endTime, date));
