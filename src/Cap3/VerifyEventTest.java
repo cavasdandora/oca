@@ -41,7 +41,7 @@ class VerifyEventTest {
         LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 6, 59, 00);
 
         VerifyEvent e = new VerifyEvent();
-        Assertions.assertEquals(false, e.isEventhappening(startTime, date, event));
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
     }
 
     @Test
@@ -63,7 +63,7 @@ class VerifyEventTest {
         LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 1, 59, 00);
 
         VerifyEvent e = new VerifyEvent();
-        Assertions.assertEquals(false, e.isEventhappening(startTime, date, event));
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
     }
 
     @Test
@@ -74,7 +74,66 @@ class VerifyEventTest {
         LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 0, 01, 00);
 
         VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
+    }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight2() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 6, 59, 00);
+
+        VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
+    }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight3() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 8, 01, 00);
+
+        VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
+    }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight4() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 8, 00, 00);
+
+        VerifyEvent e = new VerifyEvent();
         Assertions.assertEquals(false, e.isEventhappening(startTime, date, event));
     }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight5() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 7, 01, 00);
 
+        VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(false, e.isEventhappening(startTime, date, event));
+    }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight6() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 7, 00, 00);
+
+        VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(false, e.isEventhappening(startTime, date, event));
+    }
+    @Test
+    void isEventhappening_beforeSOD_atMidnight7() {
+        LocalTime startTime = LocalTime.of(7, 00, 00);
+        LocalTime endTime = LocalTime.of(7, 00, 00);
+        LocalTime event = LocalTime.of(8, 00, 00);
+        LocalDateTime date = LocalDateTime.of(2018, Month.OCTOBER, 1, 1, 01, 00);
+
+        VerifyEvent e = new VerifyEvent();
+        Assertions.assertEquals(true, e.isEventhappening(startTime, date, event));
+    }
 }
