@@ -8,11 +8,9 @@ public class MatcherExample {
         Matcher matcher = pattern.matcher(file);
         matcher.find();
         String rowFound = matcher.group(1);
-        String[] element = rowFound.split("\\s+");
+        String[] element = rowFound.split("\"");
 
-        String[] element2 = element[1].split("=");
-
-        return element2[1];
+        return element[2];
     }
 
     public static void main(String[] args) {
