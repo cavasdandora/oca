@@ -1,3 +1,5 @@
+package src;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -5,14 +7,14 @@ public class MatcherExample {
 
     private static String findId(String file, String patternString) {
         Pattern pattern = Pattern.compile(patternString);
-        Matcher matcher = pattern.matcher(file);
+        Matcher matcher = pattern.matcher(file); // corporationId\" value=\"17243\" />\n" +//name=\"masterUserId\" value=\"6218839\" />\n" +
         matcher.find();
         String rowFound = matcher.group(1);
-        String[] element = rowFound.split("\\s+");
+        String result = rowFound.substring(rowFound.indexOf('"')+1, rowFound.lastIndexOf('"'));
+        String result2 = result.substring(result.indexOf('"')+1);
 
-        String[] element2 = element[1].split("=");
 
-        return element2[1];
+        return result2;
     }
 
     public static void main(String[] args) {
