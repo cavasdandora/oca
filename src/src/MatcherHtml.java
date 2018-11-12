@@ -1,16 +1,27 @@
+package src;
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class MatcherExample {
+public class MatcherHtml{
 
-    private static String findId(String file, String patternString) {
+    public static String findId(String file, String patternString) {
         Pattern pattern = Pattern.compile(patternString);
-        Matcher matcher = pattern.matcher(file);
+        Matcher matcher = pattern.matcher(file); // corporationId\" value=\"17243\" />\n" +//name=\"masterUserId\" value=\"6218839\" />\n" +
         matcher.find();
         String rowFound = matcher.group(1);
-        String[] element = rowFound.split("\"");
+        String result = rowFound.substring(rowFound.indexOf('"') + 1);
+        String result2 = result.substring(result.indexOf('"') + 1);
+        int result3 = result2.indexOf('"');
 
-        return element[2];
+        String subString = null;
+        if (result3 != -1) {
+            subString = result2.substring(0, result3);
+
+        }
+        return subString;
+
+
     }
 
     public static void main(String[] args) {
@@ -67,6 +78,7 @@ public class MatcherExample {
         System.out.println(value2);
         String value3 = findId(html, "(expiresAt(.*))");
         System.out.println(value3);
+
     }
 
 
