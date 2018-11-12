@@ -53,7 +53,7 @@ public class MatcherHtml{
                 "            <h1>Contax360-17243</h1>\n" +
                 "            <h2 id=\"tos\" >Terms of Service</h2>\n" +
                 "            <p>n/a</p>\n" +
-                "            <input type=\"hidden\" name=\"corporationId\" value=\"17243\" />\n" +
+                "            <input type=\"hidden\" name=\"corporationId\" value=\"17243\" value=\"17243\"/>\n" +
                 "            <input type=\"hidden\" name=\"masterUserId\" value=\"6218839\" />\n" +
                 "            <input type=\"hidden\" name=\"expiresAt\" value=\"0\" />\n" +
                 "            <input id=\"agreebtn\" type=\"submit\" name=\"action\" value=\"Agree\">\n" +
