@@ -1,6 +1,4 @@
-package src.Cap4;
-
-import org.jetbrains.annotations.Contract;
+package Cap4;
 
 public class YetMoreInitializationOrder {
  static {
