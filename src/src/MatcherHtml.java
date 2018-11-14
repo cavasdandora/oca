@@ -7,6 +7,8 @@ public class MatcherHtml {
 
         String a = file.substring(file.indexOf(patternString));
 
+
+
         String result = a.substring(a.indexOf('"') + 1);
         String result2 = result.substring(result.indexOf('"') + 1);
         int result3 = result2.indexOf('"');
@@ -72,6 +74,8 @@ public class MatcherHtml {
         System.out.println(value);
         String value2 = findId(html, "masterUserId");
         System.out.println(value2);
+        String value3 = findId(html, "master1");
+        System.out.println(value3);
 
     }
 
