@@ -5,9 +5,9 @@ public class Eagle extends Bird{
         System.out.println("Bird is flying at "+height+" meters");
         return height;
     }
-    public int eat(int food){
-
-        System.out.println("Bird is eating "+food+" units of food");
-        return food;
-    }
+//    public int eat(int food){
+//
+//        System.out.println("Bird is eating "+food+" units of food");
+//        return food;
+//    }
 }
